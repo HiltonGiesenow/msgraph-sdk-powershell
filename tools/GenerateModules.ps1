@@ -7,6 +7,7 @@ Param(
     [string] $ModuleMappingConfigPath = (Join-Path $PSScriptRoot "..\config\ModulesMapping.jsonc"),
     [string] $OpenApiBaseUrl = "https://graphslice.azurewebsites.net",
     [string] $DocOutputFolder = (Join-Path $PSScriptRoot "..\openApiDocs"),
+    [string] $ArtifactsLocation = (Join-Path $PSScriptRoot "..\artifacts\"),
     [string] $ModuleVersion = "0.1.0",
     [int] $ModulePreviewNumber = -1,
     [switch] $BetaGraphVersion,
@@ -26,7 +27,6 @@ if($BetaGraphVersion){
     $GraphVersion = "Beta"
 }
 $AuthenticationModule = "Microsoft.Graph.Authentication"
-$ArtifactsLocation = Join-Path $PSScriptRoot "..\artifacts\"
 $AutoRestConfig = Join-Path $PSScriptRoot "..\config\AutoRestConfig.yml" -Resolve
 $BuildAndPackBinaryModulePS1 = Join-Path $PSScriptRoot ".\BuildAndPackBinaryModule.ps1" -Resolve
 $PublishModulePS1 = Join-Path $PSScriptRoot ".\PublishModule.ps1" -Resolve
